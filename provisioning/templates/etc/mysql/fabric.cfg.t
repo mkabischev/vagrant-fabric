@@ -57,3 +57,12 @@ ttl = 1
 
 [client]
 password=
+
+[protocol.mysql]
+disable_authentication = no
+ssl_cert =
+ssl_key =
+ssl_ca =
+user = admin
+address = localhost:32275
+password =

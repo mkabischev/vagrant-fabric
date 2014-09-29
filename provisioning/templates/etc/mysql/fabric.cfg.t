@@ -12,6 +12,7 @@ address                         = localhost:3306
 user                            = store 
 password                        = f4bric 
 database                        = fabric 
+auth_plugin			= mysql_native_password
 connection_timeout              = 6
 connection_attempts             = 6
 connection_delay                = 1
@@ -50,3 +51,9 @@ detections                      = 3
 detection_interval              = 6
 detection_timeout               = 1
 prune_time                      = 3600
+
+[connector]
+ttl = 1
+
+[client]
+password=

@@ -1,2 +1,10 @@
-- name: Adding the /etc/mysql/fabric.cfg file.
-  template: src=etc/mysql/fabric.cfg.t dest=/etc/mysql/fabric.cfg
+- name: copying fabric.cfg
+  template: dest=/etc/mysql/fabric.cfg src=etc/mysql/fabric.cfg 
+
+- name: initializing fabric if needed
+  shell: /usr/bin/mysqlfabric manage setup
+  args: 
+     creates: /var/lib/mysql/fabric/
+
+- name: start fabric if needed
+  shell: /usr/bin/mysqlfabric manage start --daemon &>/dev/null

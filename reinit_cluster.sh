@@ -27,7 +27,7 @@ EOF
 
 vagrant ssh store -c "$(cat commands.$$)"
 
-for i in 1 2 3; do
+for i in 1 2 3 4 5; do
     cat >commands.$$ <<EOF
 set -x
 sudo service mysqld stop
@@ -53,7 +53,7 @@ done
 
 	sleep 2
 
-for i in 1 2 3; do
+for i in 1 2 3 4 5; do
     for port in 3306 13306; do
 	vagrant ssh node$i -c "mysql -h127.0.0.1 -P$port -uroot -e 'reset master'"
     done

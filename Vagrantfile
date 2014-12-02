@@ -26,6 +26,10 @@ fabric_nodes = {
   'node4' => {
     'ip' => '192.168.70.104',
     'playbook' => 'fabric-node.yml'
+  },
+  'node5' => {
+     'ip' => '192.168.70.105',
+     'playbook' => 'fabric-node.yml'
   }
 }
 
@@ -42,7 +46,7 @@ Vagrant.configure("2") do |config|
       node_config.vm.provision :ansible do |ansible|
         ansible.groups = {
           "stores" => ['store'],
-          "nodes" => ['node1', 'node2', 'node3', 'node4'],
+          "nodes" => ['node1', 'node2', 'node3', 'node4','node5','node6'],
           "all_groups:children" => ["stores", "nodes"]
         }
         ansible.verbose = 'vv'
